@@ -10,12 +10,14 @@ import redis
 
 
 class CachedFeatureFlagUseCase(IFeatureFlagUseCase):
-    def __init__(self, feature_flag_use_case: IFeatureFlagUseCase):
+    def __init__(
+        self, feature_flag_use_case: IFeatureFlagUseCase, expiration_time: int = 3600
+    ):
         self.feature_flag_use_case = feature_flag_use_case
         self.cache = redis.Redis(
             host=REDIS_HOST, port=REDIS_PORT, decode_responses=True
         )
-
+        self.expiration_time = expiration_time
     def is_feature_enabled(self, feature_flag_name: str, distinct_id: str) -> bool:
         cache_key = f"feature_flags:{distinct_id}:{feature_flag_name}"
         cached_value = self.cache.get(cache_key)
@@ -27,7 +29,9 @@ class CachedFeatureFlagUseCase(IFeatureFlagUseCase):
         feature_flag_enabled = self.feature_flag_use_case.is_feature_enabled(
             feature_flag_name, distinct_id
         )
-        self.cache.set(cache_key, "true" if feature_flag_enabled else "false")
+        self.cache.set(
+            cache_key, "true" if feature_flag_enabled else "false", ex=self.expiration_time
+        )
         return feature_flag_enabled
 
 
