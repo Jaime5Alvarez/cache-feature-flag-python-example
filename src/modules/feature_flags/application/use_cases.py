@@ -19,7 +19,7 @@ class CachedFeatureFlagUseCase(IFeatureFlagUseCase):
         )
         self.expiration_time = expiration_time
     def is_feature_enabled(self, feature_flag_name: str, distinct_id: str) -> bool:
-        cache_key = f"feature_flags:{distinct_id}:{feature_flag_name}"
+        cache_key = f"feature_flags:{feature_flag_name}:{distinct_id}"
         cached_value = self.cache.get(cache_key)
 
         if cached_value:
