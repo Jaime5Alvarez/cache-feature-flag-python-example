@@ -1,0 +1,11 @@
+[project]
+name = "cache-feature-flag-python-example"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "dotenv>=0.9.9",
+    "posthog>=3.25.0",
+    "ruff>=0.11.6",
+]
