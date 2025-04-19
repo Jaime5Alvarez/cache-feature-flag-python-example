@@ -7,7 +7,7 @@ def main():
     print("Hello from cache-feature-flag-python-example!")
     feature_flag_use_case = FeatureFlagUseCaseFactory.create_posthog()
     if feature_flag_use_case.is_feature_enabled(
-        FeatureFlagName.ADMIN_ACCESS.value, MockUsers.USER_1.value
+        FeatureFlagName.ADMIN_ACCESS.value, MockUsers.USER_5.value
     ):
         print("Feature flag is enabled")
     else:
