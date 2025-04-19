@@ -5,7 +5,7 @@ from src.config.mock_users import MockUsers
 
 def main():
     print("Hello from cache-feature-flag-python-example!")
-    feature_flag_use_case = FeatureFlagUseCaseFactory.create_feature_flag_use_case()
+    feature_flag_use_case = FeatureFlagUseCaseFactory.create_posthog()
     if feature_flag_use_case.is_feature_enabled(
         FeatureFlagName.ADMIN_ACCESS.value, MockUsers.USER_1.value
     ):

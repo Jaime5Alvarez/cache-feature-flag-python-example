@@ -5,7 +5,7 @@ from src.modules.feature_flags.domain.interfaces import IFeatureFlagRepository
 
 class PostHogFeatureFlagRepository(IFeatureFlagRepository):
     def __init__(self):
-        self.client = Posthog(api_key=POSTHOG_API_KEY)
+        self.client = Posthog(api_key=POSTHOG_API_KEY, host="https://eu.i.posthog.com")
 
     def is_feature_enabled(self, feature_flag_name: str, distinct_id: str) -> bool:
         feature_flag_enabled = self.client.feature_enabled(

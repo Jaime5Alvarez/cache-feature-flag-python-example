@@ -19,5 +19,5 @@ class FeatureFlagUseCase(IFeatureFlagUseCase):
 
 class FeatureFlagUseCaseFactory:
     @staticmethod
-    def create_feature_flag_use_case() -> IFeatureFlagUseCase:
+    def create_posthog() -> IFeatureFlagUseCase:
         return FeatureFlagUseCase(PostHogFeatureFlagRepository())
