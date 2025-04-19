@@ -3,6 +3,7 @@ from src.modules.feature_flags.application.use_cases import (
 )
 from src.modules.feature_flags.domain.enums import FeatureFlagName
 from src.config.mock_users import MockUsers
+from timeit import timeit
 
 
 def main():
@@ -16,4 +17,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    tiempo = timeit(lambda: main(), number=1)
+    print(f"Tiempo de ejecución: {tiempo:.4f} segundos")
