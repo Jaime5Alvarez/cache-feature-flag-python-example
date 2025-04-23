@@ -18,4 +18,4 @@ def main():
 
 if __name__ == "__main__":
     tiempo = timeit(lambda: main(), number=1)
-    print(f"Tiempo de ejecución: {tiempo:.4f} segundos") 
+    print(f"Tiempo de ejecución: {tiempo:.4f} segundos")
