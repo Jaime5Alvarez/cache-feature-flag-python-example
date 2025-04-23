@@ -1,6 +1,6 @@
 from posthog import Posthog
-from src.config.constants import POSTHOG_API_KEY
-from src.modules.feature_flags.domain.interfaces import IFeatureFlagRepository
+from config.constants import POSTHOG_API_KEY
+from modules.feature_flags.domain.interfaces import IFeatureFlagRepository
 
 
 class PostHogFeatureFlagRepository(IFeatureFlagRepository):

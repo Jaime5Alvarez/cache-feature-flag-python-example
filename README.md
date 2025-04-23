@@ -46,5 +46,5 @@ cp .env.example .env
 6. Run the example:
 
 ```bash
-uv run main.py
+uv run src/main.py
 ```
